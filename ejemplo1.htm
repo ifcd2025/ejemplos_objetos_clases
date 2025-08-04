@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>ejemplo</title>
+</head>
+<body>
+    <h1>Los resultados salen en consola</h1>
+    <script>
+        // se crea un objeto en memoria y se guarda en p1 su dirección / referencia
+        const p1 = {nombre: "luis", edad: 21};
+        console.log(p1.nombre);
+        p1.edad = 22;
+        console.log(p1);
+        // Asigna la dirección / referencia de p1 a p2 (no crea una copia del objeto)
+        const p2 = p1;
+        p2.nombre = "Eva";
+        console.log(p1.nombre); // Escribe Eva pues solo hay un objeto
+        // Puedo añadir propiedades y métodos en cualquier momento
+        p1.ciudad = "vigo";
+        // Puedo crear objetos dentro de objetos
+        const p3 = {tipo: "rectangulo", base: 3, altura: 5, 
+            coordenadas: {x: 10, y: 29}};
+        console.log(p3.coordenadas.x);
+        // Otra manera de acceder a propiedades y métodos
+        console.log(p3["tipo"]);
+        // Recorrer las propiedades y métodos (no todas se pueden recorrer)
+        for(const e in p1) {
+            console.log(e);
+        }
+        // Recorrer los nombres de propiedades y métodos
+        for(const nombre of Object.keys(p1)) {
+            console.log(nombre);
+        }
+        // Recorrer los valores
+        for(const nombre of Object.values(p1)) {
+            console.log(nombre);
+        }
+        // Recorrer las dos cosas
+        for(const [nombre, valor] of Object.entries(p1)) {
+            console.log(nombre, valor);
+        }
+
+    </script>
+
+</body>
+</html>

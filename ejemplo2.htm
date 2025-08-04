@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>ejemplo</title>
+</head>
+<body>
+    <h1>Los resultados salen en consola</h1>
+    <script>
+        function saludar() {
+            console.log("Hola");
+        }
+        function presentar() {
+            console.log("Me llamo " + this.nombre);  
+        }
+        const p = {
+            nombre: "eva", 
+            edad: 24,
+            saludar1: () => console.log("Hola"),
+            saludar2: function () { console.log("Hola");},
+            saludar3: saludar,
+            // Debemos anteponer siempre this. a la propiedad o método
+            // En una función arrow this se refiere al contexto léxico donde se
+            // creó, que en este caso es el objeto window. Como window no tiene
+            // propiedad nombre, escribe undefined
+            // Moraleja: no usar funciones arrow que accedan a this
+            presentar1: () => console.log("Me llamo " + this.nombre),
+            // En funciones normales o anónimas, this se refiere a quien llamó
+            // a la función (en nuestros ejemplos de debajo, p)
+            presentar2: function() {console.log("Me llamo " + this.nombre) },
+            presentar3 : presentar
+        };
+        p.saludar1();
+        p.saludar2();
+        p.saludar3();
+        p.presentar1(); // Me llamo undefined pues this es el objeto window
+        p.presentar2(); // Me llamo Eva pues this es p
+        p.presentar3(); // Me llamo Eva pues this es p
+        presentar(); // Me llamo undefined pues this es el objeto window
+
+        p.despedida = () => console.log("Adiós");
+        p.despedida();
+
+
+
+
+    </script>
+
+</body>
+</html>

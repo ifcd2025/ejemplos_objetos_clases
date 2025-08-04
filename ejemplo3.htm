@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Ejemplo</title>
+</head>
+<body>
+    <script>
+        /*const p1 = {nombre: "Pepe", edad:50, ciudad: "vigo"};
+        const p2 = {nombre: "Eva", edad:30, ciudad: "vigo"};
+        const p3 = {nombre: "Luis", edad:43, ciudad: "cangas"};
+        const p4 = {nombre: "Ana", edad:19, ciudad: "baiona"};*/
+
+        // Cuando queremos crear varios objetos con los mismos atributos
+        // y/o métodos, es mejor crear una función constructor
+        // Se suele poner la primera letra en mayúsculas
+        function Persona(nombre, edad, ciudad) {    
+            // Creamos 3 atributos y le asignamos los valores de los parámetros
+            // No tienen porque llamarse igual a los parámetros
+            this.nombre = nombre;
+            this.edad = edad;
+            this.ciudad = ciudad;
+            this.saludar = function () {console.log("Hola, soy " + this.nombre);}
+        }
+        // Luego, cuando quiero crear un objeto usaré esto:
+        const p1 = new Persona("Luis", 72, "vigo");
+        const p2 = new Persona("Laura", 50, "cangas");
+        p1.saludar();
+        p2.saludar();
+
+        // El modo anterior tiene el inconveniente de que se crea una nueva función
+        // de saludo cada vez que se crea un objeto, con lo que desperdiciamos 
+        // memoria y tiempo
+        // La solución es sacar la función de la función constructora
+        function saludar() {
+            console.log("Hola, soy " + this.nombre);
+        }
+        function Persona2(nombre, edad, ciudad) {    
+            this.nombre = nombre;
+            this.edad = edad;
+            this.ciudad = ciudad;
+            this.saludar = saludar;
+        }
+        const p3 = new Persona("Eduardo", 21, "cangas");
+        p3.saludar();
+        // Esta solución tiene el inconveniente de que ahora la función está
+        // separada del objeto en sí. Además podríamos llamar a la función 
+        // directamente, que no es lo que queremos
+        // La mejor solución es usar el prototipo del objeto, que tiene todo
+        // objeto y que es un molde o base que se usa para crearlo. A su vez
+        // un prototipo puede tener otro prototipo.... hasta llegar a Object
+        // que es el objeto "padre" de todos los objetos
+        function Persona3(nombre, edad, ciudad) {    
+            this.nombre = nombre;
+            this.edad = edad;
+            this.ciudad = ciudad;
+        }
+        Persona3.prototype.saludar = saludar;
+
+        String.prototype.inicial = function () { return this[0]};
+        console.log("hola".inicial()); // Escribe h
+
+        Number.prototype.isPar = function () { return this % 2 == 0};
+        const numero = 3;
+        console.log(numero.isPar());
+    </script>
+
+</body>
+</html>
