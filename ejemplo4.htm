@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>ejemplo</title>
+</head>
+<body>
+    <script>
+        function Rectangulo(base, altura) {
+            this.base = base;
+            this.altura = altura;
+        }
+        Rectangulo.prototype.area = function () { 
+            return this.base * this.altura};
+        Rectangulo.prototype.perimetro = function () {
+            return 2 * (this.base + this.altura)};
+
+        function Circulo(radio) {
+            this.radio = radio;
+        }
+        Circulo.prototype.area = function () {
+            return Math.PI * this.radio * this.radio;
+        }
+        Circulo.prototype.perimetro = function () {
+            return 2 * Math.PI * this.radio;
+        }
+
+        const r1 = new Rectangulo(3, 4);
+        const c1 = new Circulo(10);
+        console.log(r1.area());
+        console.log(r1.perimetro());
+        console.log(c1.area());
+ 
+        let r2 = new Rectangulo(3, 4);
+        //....
+        r2 = null; // Ya no se refiere al objeto
+
+    </script>
+
+</body>
+</html>
