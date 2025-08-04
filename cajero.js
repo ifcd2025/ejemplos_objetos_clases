@@ -18,7 +18,7 @@ function ingresar() {
         // Si hay un error, se salta al catch y estas instrucciones ya no se ejecutan
         document.getElementById("saldo").value = cuenta.saldo;
         // Usando ingresar2, lo anterior puede ser una sola instrucción
-        document.getElementById("saldo").value = cuenta.ingresar2(parseInt(importe));
+        // document.getElementById("saldo").value = cuenta.ingresar2(parseInt(importe));
 
         document.getElementById("mensaje").textContent = "Dinero ingresado";
     } catch(error) {

@@ -30,3 +30,11 @@ export class Cuenta {
         }
     }
 }
+
+//
+class Cuenta2 {
+    // No se puede poner let ni const, pues siempre son let
+    titular; // O más claro: titular = "";
+    saldo; // O más claro: saldo = 0;
+    // El resto idéntico (constructor incluido)
+}
