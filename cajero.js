@@ -19,7 +19,8 @@ function ingresar() {
         document.getElementById("saldo").value = cuenta.saldo;
         // Usando ingresar2, lo anterior puede ser una sola instrucción
         // document.getElementById("saldo").value = cuenta.ingresar2(parseInt(importe));
-
+        // Si uso Cuenta3 y quiero mostrar el saldo, debería usar:
+        //document.getElementById("saldo").value = cuenta.getSaldo();
         document.getElementById("mensaje").textContent = "Dinero ingresado";
     } catch(error) {
         // instrucciones en caso de error
