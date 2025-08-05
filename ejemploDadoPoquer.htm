@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Ejemplo</title>
+   <!-- Imágenes de flaticon.com -->
+   <style>
+        div {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        img {
+            width: 128px;
+            height: 128px;
+            background-color: darkgreen;
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.219);
+        }
+        #tirar {
+            display: block;
+            margin: 2rem auto;
+            padding: .5rem 1rem;
+            background-color: cornflowerblue;
+            color: rgb(255, 255, 255);
+            border: none;
+        }
+   </style>
+</head>
+<body>
+    <div>
+        <img src="dados/dado.png" alt="dado" id="imgDado1">
+        <img src="dados/dado.png" alt="dado" id="imgDado2">
+        <img src="dados/dado.png" alt="dado" id="imgDado3">
+        <img src="dados/dado.png" alt="dado" id="imgDado4">
+        <img src="dados/dado.png" alt="dado" id="imgDado5">
+    </div>
+    <input type="button" value="Tirar dados" id="tirar">
+
+    <script type="module">
+        import {Dado} from "./Dado.js";
+
+        const dados = [new Dado(6), new Dado(6), new Dado(6), new Dado(6), new Dado(6)];
+
+        /*const dados = [];
+        for(let i = 1; i <= 5; i++) {
+            dados.push(new Dado(6));
+        }*/
+
+        document.getElementById("tirar").addEventListener("click", tirarDado);
+
+        function tirarDado() {
+            for(let i = 1; i <= 5; i++) {
+                // i - 1 ya que comenzamos el for en 1 y los arrays comienzan en 0
+                const cara = dados[i-1].tirar();
+                const imgDado = document.getElementById("imgDado" + i);
+                imgDado.src = `dados/dado${cara}.png`;
+                const cuadros = [
+                    {transform: "rotateX(180deg)", offset: .5}
+                ];
+                const opciones = {duration: 1000};
+                imgDado.animate(cuadros, opciones);
+
+            }
+        }
+    </script>
+</body>
+</html>

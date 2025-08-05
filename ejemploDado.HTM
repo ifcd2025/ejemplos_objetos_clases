@@ -3,9 +3,44 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title></title>
+   <title>Ejemplo</title>
+   <style>
+        #imgDado {
+            width: 128px;
+            height: 128px;
+            background-color: darkgreen;
+            display: block;
+            margin: 2rem auto;
+        }
+        #tirar {
+            display: block;
+            margin: 2rem auto;
+            padding: .5rem 1rem;
+            background-color: cornflowerblue;
+            color: rgb(255, 255, 255);
+            border: none;
+        }
+   </style>
 </head>
 <body>
+    <img src="dados/dado.png" alt="dado" id="imgDado">
+    <input type="button" value="Tirar dado" id="tirar">
 
+    <script type="module">
+        import {Dado} from "./Dado.js";
+        const dado = new Dado(6);
+        document.getElementById("tirar").addEventListener("click", tirarDado);
+
+        function tirarDado() {
+            const cara = dado.tirar();
+            const imgDado = document.getElementById("imgDado");
+            imgDado.src = `dados/dado${cara}.png`;
+            const cuadros = [
+                {transform: "rotateX(180deg)", offset: .5}
+            ];
+            const opciones = {duration: 1000};
+            imgDado.animate(cuadros, opciones);
+        }
+    </script>
 </body>
 </html>
