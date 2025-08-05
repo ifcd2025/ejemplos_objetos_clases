@@ -6,9 +6,15 @@
    <title></title>
 </head>
 <body>
+    <h1>Todo en consola</h1>
     <script type="module">
         import {CpuCisc} from "./CpuCisc.js";
-        const cpu1 = new CpuCisc("hjhk");
+        const cpu1 = new CpuCisc("AX-14");
+        cpu1.setAX(3);
+        cpu1.setBX(4);
+        cpu1.sumar();
+        cpu1.multiplicar();
+        console.log(cpu1.toString());
     </script>
 
 </body>
