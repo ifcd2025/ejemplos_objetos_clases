@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title></title>
+</head>
+<body>
+    <h1>Todo sale por consola</h1>
+    <script type="module">
+        import {Botella} from "./Botella.js";
+
+        const b1 = new Botella(20);
+        console.log(b1);
+        b1.introducir(5);
+        console.log(b1);
+        b1.extraer(2);
+        console.log(b1);
+        b1.llenar();
+        console.log(b1);
+
+
+    </script>
+
+</body>
+</html>
