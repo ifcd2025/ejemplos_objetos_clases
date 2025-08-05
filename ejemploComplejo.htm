@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>ejemplo</title>
+</head>
+<body>
+    <h1>todo por consola</h1>
+    <script type="module">
+        import {Complejo} from "./Complejo.js";
+
+        const c1 = new Complejo(3, 2);
+        const c2 = new Complejo(4, 1);
+        const c3 = c1.sumar(c2);
+        console.log(c3.toString());
+
+        const c4 = c1.sumar(c2).sumar(c3);
+        console.log(c4.toString());
+    </script>
+</body>
+</html>

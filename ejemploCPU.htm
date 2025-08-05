@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>ejemplo</title>
+</head>
+<body>
+    <h1>Todo por consola</h1>
+    <script type="module">
+        import {CpuRisc} from "./CpuRisc.js";
+
+        const cpu1 = new CpuRisc("Z-12");
+        cpu1.setAX(3);
+        cpu1.setBX(2);
+        cpu1.sumar();
+        console.log(cpu1.toString());
+        //alert(cpu1); // esto llama automáticamente al método toString
+        cpu1.incrementar();
+        cpu1.incrementar();
+        cpu1.incrementar();
+        console.log(cpu1.toString());
+        cpu1.setBX(10);
+        cpu1.restar();
+        console.log(cpu1.toString());
+        
+    </script>
+</body>
+</html>
